@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Grandes observadores">
+  <rect width="32" height="32" rx="7" fill="#2B2155"/>
+  <ellipse cx="16" cy="16.5" rx="11" ry="7" fill="#F7F1E6"/>
+  <circle cx="16" cy="16.5" r="4.1" fill="#E07A5F"/>
+  <circle cx="16" cy="16.5" r="2" fill="#1E1830"/>
+  <circle cx="17.3" cy="15.4" r="0.9" fill="#E6B84C"/>
+</svg>

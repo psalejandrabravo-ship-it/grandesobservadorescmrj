@@ -1,0 +1,86 @@
+@import "tailwindcss";
+@import "@fontsource/nunito-sans/400.css";
+@import "@fontsource/nunito-sans/600.css";
+@import "@fontsource/nunito-sans/800.css";
+
+@theme {
+  --color-indigo: #2b2155;
+  --color-coral: #e07a5f;
+  --color-gold: #e6b84c;
+  --color-cream: #f7f1e6;
+  --color-ink: #1e1830;
+  --color-paper: #fffaf3;
+  --font-sans: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 1.25rem;
+}
+
+@layer base {
+  html,
+  body {
+    background: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+}
+
+.pop-once {
+  animation: pop-in 0.45s ease;
+}
+.screen-in {
+  animation: screen-in 0.55s ease;
+}
+.title-pop {
+  animation: title-pop 0.55s cubic-bezier(0.2, 1.2, 0.4, 1);
+}
+@keyframes pop-in {
+  from { transform: scale(0.98); }
+  to { transform: scale(1); }
+}
+@keyframes screen-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes title-pop {
+  from { opacity: 0; transform: scale(0.86); }
+  to { opacity: 1; transform: none; }
+}
+.confetti-bit {
+  position: absolute;
+  top: -18px;
+  border-radius: 2px;
+  animation-name: confetti-fall;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+@keyframes confetti-fall {
+  0% { transform: translate3d(0, -10px, 0) rotate(0deg); }
+  100% { transform: translate3d(var(--drift), 105vh, 0) rotate(var(--spin)); }
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
