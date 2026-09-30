@@ -6,7 +6,7 @@ import { PLAY } from "./playdata";
 import { freshPieces, isComplete, magnet, moveGroup, PIECES, TARGET, trySnap, type Piece, type PieceId } from "./puzzle";
 import { sfx } from "./sfx";
 
-type Screen = "home" | "video" | "situation" | "closing";
+type Screen = "home" | "video" | "situation" | "closing" | "activity";
 type LogoMode = "mirarim" | "institutional" | "both" | "none";
 
 type Settings = {
@@ -776,6 +776,13 @@ export function Game() {
             <h1 className="text-3xl font-extrabold text-indigo">Ahora son Grandes observadores</h1>
             <p>Se detuvieron, miraron con atención y reconocieron las señales de las otras personas.</p>
             <p className="text-sm font-extrabold text-indigo">Psicóloga Alejandra Bravo Pino</p>
+            <button
+              type="button"
+              className="text-base font-extrabold text-coral underline underline-offset-4"
+              onClick={() => setScreen("activity")}
+            >
+              Ver actividad
+            </button>
             <div className="flex flex-wrap justify-center gap-2">
               <button type="button" className="min-h-12 rounded-full border-2 border-indigo px-4" onClick={() => setMenu(true)}>
                 Volver a una situación
@@ -794,6 +801,24 @@ export function Game() {
                 Volver al inicio
               </button>
             </div>
+          </section>
+        )}
+
+        {screen === "activity" && (
+          <section className="screen-in mx-auto flex w-full max-w-3xl flex-col items-center gap-4">
+            <h2 className="text-2xl font-extrabold text-indigo">Actividad para recortar</h2>
+            <img
+              src="/assets/actividad-recorte.png"
+              alt="Ficha para recortar y pegar: La construcción se cayó"
+              className="w-full rounded-card border border-indigo/15 bg-paper"
+            />
+            <button
+              type="button"
+              className="min-h-12 rounded-full border-2 border-indigo px-5"
+              onClick={() => setScreen("closing")}
+            >
+              Volver
+            </button>
           </section>
         )}
       </main>
